@@ -59,7 +59,7 @@ namespace Driver {
             if(type == "insertion_sort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(IS::insertion_sort, arr, bound);
-                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds";
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
             }
 
@@ -69,13 +69,13 @@ namespace Driver {
                     auto arr = generate_rand_array(bound);
                     //printf("Breaks after generating random array");
                     auto ret = Driver::do_action(MS::mergesort, arr, 0, bound - 1);
-                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds";
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
             }
             if(type == "quicksort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);
-                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds";
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
             }
         }
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
     //Insertion sort
     Driver::go("insertion_sort");
     //Merge sort
-    //Driver::go("mergesort");
+    Driver::go("mergesort");
     //Quicksort
     Driver::go("quicksort");
 

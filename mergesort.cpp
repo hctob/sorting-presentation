@@ -1,3 +1,5 @@
+#include <vector>
+
 namespace MS {
 
     void merge(int* arr, int left, int mid, int right) {
@@ -8,8 +10,10 @@ namespace MS {
         int t1 = mid - left + 1;
         int t2 = right - mid;
 
-        int L[t1];
-        int R[t2];
+        //int L[t1];
+        std::vector<int> L(t1);
+        std::vector<int> R(t2);
+        //int R[t2];
 
         for(i = 0; i < t1; i++) {
             L[i] = arr[left + i];
