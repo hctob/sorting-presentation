@@ -3,6 +3,9 @@
 #include <random>
 #include <functional>
 #include "quicksort.cpp"
+#include "insertion_sort.cpp"
+#include "mergesort.cpp"
+#include "random_quicksort.cpp"
 
 //Insertion, merge, quick, and randomized quicksort
 
@@ -40,10 +43,24 @@ namespace Driver {
     void go(std::string type) {
         for(size_t i = 1; i < 8; i++) {
             size_t bound = std::pow(10, i);
-            auto arr = generate_rand_array(bound);
+            //auto arr = generate_rand_array(bound);
+
+            if(type == "insertion_sort") {
+                    auto arr = generate_rand_array(bound);
+                    auto ret = Driver::do_action(IS::insertion_sort, arr, bound);
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds";
+                    free(arr);
+            }
 
             //first argument of do-action is the sort you want to test the performance of
             //next arguments are the arguments of the sort function
+            if(type == "mergesort") {
+                    auto arr = generate_rand_array(bound);
+                    //printf("Breaks after generating random array");
+                    auto ret = Driver::do_action(MS::mergesort, arr, 0, bound - 1);
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds";
+                    free(arr);
+            }
             if(type == "quicksort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);
@@ -59,9 +76,9 @@ int main(int argc, char** argv) {
     /*For each sorting function, call Driver::do("name of sort");*/
 
     //Insertion sort
-
+    Driver::go("insertion_sort");
     //Merge sort
-
+    //Driver::go("mergesort");
     //Quicksort
     Driver::go("quicksort");
 

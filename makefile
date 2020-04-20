@@ -2,7 +2,7 @@ all:	main
 main:	sorts.o
 	g++ -Wall -Wextra -pedantic -g main.o -o sort-driver
 
-sorts.o:	main.cpp quicksort.cpp
+sorts.o:	main.cpp quicksort.cpp insertion_sort.cpp mergesort.cpp random_quicksort.cpp
 	g++ -Wall -Wextra -pedantic -g -c main.cpp
 
 qs:	qs.o
