@@ -11,8 +11,10 @@ namespace MS {
         int t2 = right - mid;
 
         //int L[t1];
-        std::vector<int> L(t1);
+        std::vector<int> L(t1); //sets initial capacity to size of original array to avoid allocating memory when resizing
+	//L.reserve(right);
         std::vector<int> R(t2);
+	//R.reserve(right);
         //int R[t2];
 
         for(i = 0; i < t1; i++) {

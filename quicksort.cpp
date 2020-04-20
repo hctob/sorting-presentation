@@ -11,7 +11,7 @@ namespace QS {
 
         //from the start index to the end index of the partition
         for(size_t j = start; j <= end - 1; j++) {
-            if(arr[j] <= pivot) {
+            if(arr[j] <= (int)pivot) {
                 i++;
                 std::swap(arr[i], arr[j]);
             }

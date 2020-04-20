@@ -77,6 +77,12 @@ namespace Driver {
                     auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);
                     std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
+
+		    /*auto sorted = generate_sorted_array(10000, 0); //sorting on pre-sorted array
+		    auto ret2 = Driver::do_action(QS::quicksort, sorted, 0, 10000);
+
+		    std::cout << "Time to " << type << " sorted array of " << bound << " elements: " << ret2 << " seconds.\n";
+		    free(sorted);*/
             }
         }
     }
@@ -87,7 +93,7 @@ int main(int argc, char** argv) {
     /*For each sorting function, call Driver::do("name of sort");*/
 
     //Insertion sort
-    Driver::go("insertion_sort");
+    //Driver::go("insertion_sort");
     //Merge sort
     Driver::go("mergesort");
     //Quicksort
