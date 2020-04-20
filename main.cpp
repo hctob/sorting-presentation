@@ -23,7 +23,18 @@ namespace Driver {
         for (auto i = 0; i < (int)size; i++) {
             std::cout << new_array[i] << " ";
         }*/
-        std::cout << std::endl;
+        //std::cout << std::endl;
+        return new_array;
+    }
+
+    //default start value is 0
+    //generates an int array of size size with values start...size
+    int* generate_sorted_array(size_t size, int start = 0) {
+        int* new_array = (int*)malloc(sizeof(int) * size); //create an array of size size on the heap
+        for(size_t i = 0; i < size; ++i) {
+            new_array[i] = start + i;
+        }
+
         return new_array;
     }
 
