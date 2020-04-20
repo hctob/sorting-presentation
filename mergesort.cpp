@@ -1,4 +1,5 @@
 namespace MS {
+
     void merge(int* arr, int left, int mid, int right) {
         int i = 0;
         int j = 0;
@@ -52,7 +53,7 @@ namespace MS {
     void mergesort(int* arr, int left, int right) {
 
         if (left < right) {
-            int mid = left + (right - 1)/2;
+            int mid = (left + (right - 1))/2;
             mergesort(arr, left, mid);
             mergesort(arr, mid+1, right);
 
