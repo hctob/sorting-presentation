@@ -54,7 +54,7 @@ namespace MS {
     void mergesort(int* arr, int left, int right) {
 
         if (left < right) {
-            int mid = left + (right - 1)/2;
+            int mid = (left + (right - 1))/2;
             mergesort(arr, left, mid);
             mergesort(arr, mid+1, right);
 
