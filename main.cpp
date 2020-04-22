@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
     /*For each sorting function, call Driver::do("name of sort");*/
 
     //Insertion sort
-    //Driver::go("insertion_sort");
+   // Driver::go("insertion_sort");
     //Merge sort
     Driver::go("mergesort");
     //Quicksort
