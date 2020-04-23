@@ -84,6 +84,12 @@ namespace Driver {
 		    std::cout << "Time to " << type << " sorted array of " << bound << " elements: " << ret2 << " seconds.\n";
 		    free(sorted);*/
             }
+            if(type == "random_quicksort") {
+                    auto arr = generate_rand_array(bound);
+                    auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
+                    free(arr);
+            }
         }
     }
 }
@@ -100,7 +106,7 @@ int main(int argc, char** argv) {
     Driver::go("quicksort");
 
     //Randomized quicksort
-
+    //Driver::go("random_quicksort");
 
 
     return 0;

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
-#include <random>
-#include <functional>
+//#include <random>
+//#include <functional>
 
 namespace QS {
 
