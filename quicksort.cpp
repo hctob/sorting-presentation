@@ -6,7 +6,7 @@
 namespace QS {
 
     int partition(int* arr, size_t start, size_t end) {
-	size_t pivot = arr[start];
+	size_t pivot = arr[end];
         size_t i = start - 1;
 
         //from the start index to the end index of the partition

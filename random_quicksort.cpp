@@ -22,6 +22,8 @@ namespace RQS {
         std::swap(arr[i + 1], arr[end]);
         return i + 1;
     }
+
+
     void quicksort(int* arr, size_t start, size_t end) {
         if(start < end) {
             //get pivot point for quicksort based on relative start and end points
