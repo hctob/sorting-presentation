@@ -65,13 +65,13 @@ namespace Driver {
 
             //first argument of do-action is the sort you want to test the performance of
             //next arguments are the arguments of the sort function
-            if(type == "mergesort") {
+            /*if(type == "mergesort") {
                     auto arr = generate_rand_array(bound);
                     //printf("Breaks after generating random array");
                     auto ret = Driver::do_action(MS::mergesort, arr, 0, bound - 1);
                     std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
-            }
+            }*/
             if(type == "quicksort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);

@@ -5,7 +5,7 @@
 
 namespace RQS {
     int partition(int* arr, size_t start, size_t end) {
-	    size_t pivot = arr[end];
+	size_t pivot = arr[end];
         size_t i = start - 1;
 
         //from the start index to the end index of the partition
@@ -21,8 +21,10 @@ namespace RQS {
 
     int random_partition(int* arr, size_t start, size_t end) {
         srand(time(NULL));
-        int r = low + rand() % (high - low);
-        swap(arr[r], arr[high]); //swaps high pivot position with random one
+        int r = start + rand() % (end - start);
+	if(r < 0) r = 0;
+	else if(r > end) r = end - 1;
+	std::swap(arr[r], arr[end]); //swaps high pivot position with random one
 
         return partition(arr, start, end);
 
