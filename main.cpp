@@ -38,6 +38,15 @@ namespace Driver {
         return new_array;
     }
 
+    int* generate_reverse_sorted_array(size_t size) {
+	    int* arr = new int[size];
+	    for(size_t i = 0; i < size; i++) {
+		    arr[i] = size - i;
+	    }
+
+	    return arr;
+    }
+
     template <typename ResultType, typename ...ArgumentTypes>
     auto do_action(ResultType&& f, ArgumentTypes&&... args) {
         auto func = std::move(f);
@@ -57,9 +66,9 @@ namespace Driver {
             //auto arr = generate_rand_array(bound);
 
             if(type == "insertion_sort") {
-                    auto arr = generate_rand_array(bound);
+                    auto arr = generate_sorted_array(bound);
                     auto ret = Driver::do_action(IS::insertion_sort, arr, bound);
-                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
+                    std::cout << "Time to " << type << " array of " << bound << " sorted elements: " << ret << " seconds.\n";
                     free(arr);
             }
 
@@ -99,9 +108,9 @@ int main(int argc, char** argv) {
     /*For each sorting function, call Driver::do("name of sort");*/
 
     //Insertion sort
-   // Driver::go("insertion_sort");
+    Driver::go("insertion_sort");
     //Merge sort
-    Driver::go("mergesort");
+    //Driver::go("mergesort");
     //Quicksort
     Driver::go("quicksort");
 
