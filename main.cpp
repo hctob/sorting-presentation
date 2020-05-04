@@ -92,6 +92,7 @@ namespace Driver {
             }
             else {
                 std::cout << "ERROR: unknown sort type.\n";
+        std::cout << "insertion_sort: runs insertion_sort\nmergesort: runs mergesort\nquicksort: runs quicksort\nrandom_quicksort: runs randomized quicksort\n";
                 exit(1);
             }
         }
