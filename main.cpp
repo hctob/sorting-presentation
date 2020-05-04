@@ -38,15 +38,6 @@ namespace Driver {
         return new_array;
     }
 
-    int* generate_reverse_sorted_array(size_t size) {
-	    int* arr = new int[size];
-	    for(size_t i = 0; i < size; i++) {
-		    arr[i] = size - i;
-	    }
-
-	    return arr;
-    }
-
     template <typename ResultType, typename ...ArgumentTypes>
     auto do_action(ResultType&& f, ArgumentTypes&&... args) {
         auto func = std::move(f);
@@ -66,9 +57,9 @@ namespace Driver {
             //auto arr = generate_rand_array(bound);
 
             if(type == "insertion_sort") {
-                    auto arr = generate_sorted_array(bound);
+                    auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(IS::insertion_sort, arr, bound);
-                    std::cout << "Time to " << type << " array of " << bound << " sorted elements: " << ret << " seconds.\n";
+                    std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
             }
 
@@ -106,16 +97,24 @@ namespace Driver {
 
 int main(int argc, char** argv) {
     /*For each sorting function, call Driver::do("name of sort");*/
-
+    if(argc != 2) {
+        std::cout << "Usage: ./sort-driver <name of sort>" << std::endl;
+        std::cout << "insertion_sort: runs insertion_sort\nmergesort: runs mergesort\nquicksort: runs quicksort\nrandom_quicksort: runs randomized quicksort\n";
+        exit(1);
+    }
+    else {
+        auto option = argv[1];
+        Driver::go(option);
+    }
     //Insertion sort
-    Driver::go("insertion_sort");
+   // Driver::go("insertion_sort");
     //Merge sort
     //Driver::go("mergesort");
     //Quicksort
-    Driver::go("quicksort");
+    //Driver::go("quicksort");
 
     //Randomized quicksort
-    Driver::go("random_quicksort");
+    //Driver::go("random_quicksort");
 
 
     return 0;
