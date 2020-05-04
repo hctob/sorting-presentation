@@ -65,14 +65,14 @@ namespace Driver {
 
             //first argument of do-action is the sort you want to test the performance of
             //next arguments are the arguments of the sort function
-            /*if(type == "mergesort") {
+            else if(type == "mergesort") {
                     auto arr = generate_rand_array(bound);
                     //printf("Breaks after generating random array");
                     auto ret = Driver::do_action(MS::mergesort, arr, 0, bound - 1);
                     std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
-            }*/
-            if(type == "quicksort") {
+            }
+            else if(type == "quicksort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(QS::quicksort, arr, 0, bound);
                     std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
@@ -84,11 +84,15 @@ namespace Driver {
 		    std::cout << "Time to " << type << " sorted array of " << bound << " elements: " << ret2 << " seconds.\n";
 		    free(sorted);*/
             }
-            if(type == "random_quicksort") {
+            else if(type == "random_quicksort") {
                     auto arr = generate_rand_array(bound);
                     auto ret = Driver::do_action(RQS::quicksort, arr, 0, bound);
                     std::cout << "Time to " << type << " array of " << bound << " elements: " << ret << " seconds.\n";
                     free(arr);
+            }
+            else {
+                std::cout << "ERROR: unknown sort type.\n";
+                exit(1);
             }
         }
     }
